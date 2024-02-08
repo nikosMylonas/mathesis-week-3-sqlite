@@ -1,0 +1,57 @@
+<div id="{{mainId}}">
+<div class='container'>
+    <h2 class='mt-3'>Προσθήκη Νέου Βιβλίου</h2>
+    <form action='/doaddbook' method='post'>
+        <div class='mb-3'>
+            <label for='newBookTitle' class='form-label'>Τίτλος</label>
+            <input
+                type='text'
+                class='form-control {{#if message.title}}is-invalid{{/if}}'
+                id='newBookTitle'
+                name='title'
+                value='{{title}}'
+                placeholder="Τίτλος..."
+            />
+            <div class="invalid-feedback">{{message.title.msg}}</div>
+        </div>
+
+        <div class='mb-3'>
+            <label for='newBookAuthor' class='form-label'>Συγγραφέας</label>
+            <input
+                type='text'
+                class='form-control {{#if message.author}}is-invalid{{/if}}'
+                id='newBookAuthor'
+                name='author'
+                value='{{author}}'
+                placeholder="Συγγραφέας..."
+            />
+            <div class="invalid-feedback">{{message.author.msg}}</div>
+        </div>
+        <div class='mb-3'>
+            <label for='newBookEditor' class='form-label'>Εκδότης</label>
+            <input
+                type='text'
+                class='form-control {{#if message.editor}}is-invalid{{/if}}'
+                id='newBookEditor'
+                name='editor'
+                value='{{editor}}'
+                placeholder="Εκδότης..."
+            />
+            <div class="invalid-feedback">{{message.editor.msg}}</div>
+        </div>
+        <div class='mb-3'>
+            <label for='newBookYear' class='form-label'>Ετος</label>
+            <input
+                type='text'
+                class='form-control {{#if message.year}}is-invalid{{/if}}'
+                id='newBookYear'
+                name='year'
+                value='{{year}}'
+                placeholder="Ετος..."
+            />
+            <div class="invalid-feedback">{{message.year.msg}}</div>
+        </div>
+        <button type='submit' class='btn btn-submit-custom'>Προσθήκη</button>
+    </form>
+</div>
+</div>

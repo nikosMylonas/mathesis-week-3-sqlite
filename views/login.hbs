@@ -1,0 +1,21 @@
+<div id="{{mainId}}">
+<div class='container'>
+    <h2 class='mt-3'>Είσοδος Χρήστη</h2>
+    <form action='/books' method='post'>
+        <div class='mb-3'>
+            <label for='username' class='form-label'>Username</label>
+            <input
+                type='text'
+                class='form-control {{#if message.username}}is-invalid{{/if}}'
+                id='username'
+                name='username'
+                value='{{username}}'
+                placeholder="Enter Username..."
+            />
+            <div class="invalid-feedback">{{message.username.msg}}</div>
+        </div>
+        
+        <button type='submit' class='btn btn-submit-custom'>Υποβόλη</button>
+    </form>
+</div>
+</div>

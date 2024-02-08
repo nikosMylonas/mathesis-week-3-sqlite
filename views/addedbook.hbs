@@ -1,0 +1,34 @@
+<div id='{{mainId}}'>
+    <div class='container'>
+        {{#unless bookUserCheck}}
+            <h2 class='mt-3'>Καινούργιο Βιβλίο</h2>
+            <p>Το παρακάτω βιβλίο πρόκειται να προστεθεί στην λίστα του χρήστη
+                <span class='username'>{{username}}</span>:</p>
+            <div class='alert alert-primary'>
+                <strong>- Τίτλος:</strong>
+                {{title}}<br />
+                <strong>- Συγγραφέας:</strong>
+                {{author}}<br />
+                <strong>- Εκδότης:</strong>
+                {{editor}}<br />
+                <strong>- Ετος:</strong>
+                {{year}}<br />
+            </div>
+            <p>Για να δείτε την καινούργια λίστα βιβλίων πατήστε
+                <a href='/books'>εδώ</a>.</p>
+
+        {{/unless}}
+
+        {{#if bookUserCheck}}
+            <div class='alert alert-warning p-5' role='alert'>
+                Το βιβλίο που υποβάλατε υπάρχει ήδη στην λίστα σας! Παρακαλώ
+                προσθέστε ένα καινούργιο βιβλίο πατώντας
+                <a href='/addbookform'>Προσθήκη Νέου Βιβλίου</a>, ή επισκεφθείτε
+                την
+                <a href='/books'>Λίστα Βιβλίων</a>
+                σας.
+            </div>
+
+        {{/if}}
+    </div>
+</div>

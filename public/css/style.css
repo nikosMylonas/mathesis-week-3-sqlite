@@ -1,0 +1,89 @@
+:root {
+    --nav-primary: #ffe4b5;
+    --btn-add-primary: #20b2aa;
+    --btn-add-hover: #008b8b;
+    --btn-log: #bdb76b;
+    --btn-log-hover: #f0e68c;
+    --greet-back: LightBlue;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+nav {
+    background: var(--nav-primary) !important; /*lightgrey;*/
+}
+nav .logo-size {
+    font-size: 2rem;
+}
+nav a.active {
+    cursor: auto;
+    pointer-events: none;
+}
+.nav-log .btn {
+    border: solid 1px var(--btn-log);
+}
+.nav-log .btn:hover {
+    background: var(--btn-log-hover);
+}
+.nav-log .active {
+    cursor: auto;
+    pointer-events: none;
+    color: black;
+}
+
+#user-greeting {
+    background: var(--greet-back);
+    padding-top: 0.7rem;
+    padding-bottom: 0.3rem;
+}
+#user-greeting .username,
+#added-book .username,
+#deleted-book .username {
+    text-transform: capitalize;
+}
+
+.btn-add-custom,
+.btn-submit-custom {
+    background: var(--btn-add-primary);
+    color: white;
+}
+.btn-add-custom:hover,
+.btn-submit-custom:hover {
+    background: var(--btn-add-hover);
+    color: white;
+}
+#booklist .btn-delete-custom {
+    /* background-color: #aa0001 !important;
+    color: white; */
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+#booklist .accordion-button {
+    background: var(--nav-primary);
+}
+/* #booklist .accordion-button:not(.collapsed) {
+    background: var(--nav-primary);
+} */
+
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}
+
+/* Individual pages styles
+ * -------------------------*/
+#home section h3 {
+    text-transform: capitalize;
+    margin-top: -6px;
+}
+@media screen and (max-width: 991px) {
+    #home section h3 {
+        margin-top: 0.75rem;
+    }
+}

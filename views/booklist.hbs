@@ -1,0 +1,70 @@
+<div id="{{mainId}}">
+<div class='container'>
+    <h2 class='mt-3 mb-3'>My Books
+        <span class='badge bg-secondary'>{{books.length}}</span></h2>
+    <p>
+        <a class='btn btn-add-custom' href='/addbookform'>Προσθήκη Νέου Βιβλίου</a>
+    </p>
+    {{#if books}}
+        <div class='accordion mt-4' id='booklist'>
+            {{#each books}}
+                <div class="modal fade" id="deleteModal-{{this.bookId}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Διαγραφή Βιβλίου</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Το βιβλίο <strong>{{this.bookTitle}}</strong> θα διαγραφεί από την λίστα σας. Αν συμφωνείτε πατήστε το κουμπί Delete αλλιώς πατήστε το κουμπί Close.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="/delete/{{this.bookId}}" type="button" class="btn btn-danger">Delete</a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='accordion-item'>
+                    <h2 class='accordion-header'>
+                        <button
+                            class='accordion-button {{#unless @first}}collapsed{{/unless}}'
+                            type='button'
+                            data-bs-toggle='collapse'
+                            data-bs-target='#book-item-{{@index}}'
+                            aria-expanded='{{#if @first}}true{{/if}} {{#unless @first}}false{{/unless}}'
+                            aria-controls='book-item-{{@index}}'
+                        >
+                            <span class="h5">Tίτλος: {{this.bookTitle}}</span>
+                            {{!-- <a type="button" class="btn btn-danger btn-delete" href="/delete/{{this.bookId}}">Delete</a> --}}
+                        </button>
+                    </h2>
+                    <div
+                        id='book-item-{{@index}}'
+                        class='accordion-collapse collapse {{#if @first}}show{{/if}}'
+                        data-bs-parent='#booklist'
+                    >
+                        <div class='accordion-body'>
+                            - Συγγραφέας:
+                            {{this.authorName}}<br />
+                            - Εκδότης:
+                            {{this.editor}}<br />
+                            - Ετος:
+                            {{this.year}}
+                        </div>
+                        <hr>
+                        <button type="button" class="btn btn-danger btn-delete-custom" data-bs-toggle="modal" data-bs-target="#deleteModal-{{this.bookId}}">Delete <span>{{this.bookTitle}}</span></button>
+                        {{!-- <a type="button" class="btn btn-danger btn-delete " href="/delete/{{this.bookId}}">Delete <span>Βιβλίο: {{this.bookTitle}}</span></a>  --}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#unless books}}
+        <div class='alert alert-warning' role='alert'>
+            {{!-- No books registered! --}}
+            Δεν έχετε καταχωρήσει κάποιο βιβλίο στην λίστα σας!
+        </div>
+    {{/unless}}
+</div>
+</div>
