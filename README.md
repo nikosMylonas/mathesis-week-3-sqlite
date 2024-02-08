@@ -1,2 +1,2 @@
 # mathesis-week-3-sqlite
-MyBooks app, qslite version with sequelize
+MyBooks app, sqlite version with sequelize
